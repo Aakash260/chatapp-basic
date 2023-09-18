@@ -8,7 +8,9 @@ import {auth} from '../firebase'
 const login = () => {
     const [err, setErr] = useState(false)
     const navigate=useNavigate();
-    const handleSubmit=async(e)=>{
+    const handleSubmit=async(e) => {
+        console.log("🚀 ~ file: Login.jsx:12 ~ handleSubmit ~ e:", e)
+      
 e.preventDefault();
  
 const email=e.target[0].value;
@@ -18,7 +20,8 @@ try {
    await signInWithEmailAndPassword(auth, email, password)
   navigate('/home')
 } catch (error) {
-    setErr(true)
+   console.log(error)
+   setErr(true)
 }
     }
   return (
